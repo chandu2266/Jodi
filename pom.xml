@@ -52,7 +52,7 @@
   </dependencies>
 
   <build>
-    <finalName>live</finalName>
+    <finalName>jodi</finalName>
     <pluginManagement>
       <plugins>
         <plugin>
