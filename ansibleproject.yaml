@@ -1,0 +1,12 @@
+---
+ - hosts: all
+   user: root
+   tasks:
+     - name: git installation
+       yum:
+         name: git 
+         state: present
+     - name: maven installation
+       yum:
+         name: maven
+         state: present

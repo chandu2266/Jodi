@@ -1,0 +1,23 @@
+---
+ - hosts: all
+   tasks:
+   - name: Clone a github repository
+     git:
+       repo: https://github.com/chandu2266/Jodi.git
+       dest: /home/debian/repos/
+       clone: yes
+       update: yes
+
+   - name: Run mvn clean package
+     shell: mvn clean package
+     args:
+       chdir: /home/debian/repos/
+   - name: "deploy a war file"
+     copy:
+       src: /home/debian/repos/target/jodi.war
+       dest: /opt/tomcat10/webapps/jodi.war
+       remote_src: yes
+   - name: restart tomcat
+     service:
+      name: tomcat
+      state: restarted
